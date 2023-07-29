@@ -9,6 +9,11 @@ import java.io.IOException;
 public class MyClass extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         System.out.println("Request Received!");
+
+        // If someone send a request about "customer" It will be redirected(invoke) to this method.
+
+        /** That means Java was able to catch a request from a web browser */
     }
 }
