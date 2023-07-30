@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Hello_JavaEE/Hello_JavaEE.iml" filepath="$PROJECT_DIR$/Hello_JavaEE/Hello_JavaEE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Manual_App/Manual_App.iml" filepath="$PROJECT_DIR$/Manual_App/Manual_App.iml" />
     </modules>
   </component>
 </project>

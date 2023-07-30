@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="manualApp">
+    <output-path>$PROJECT_DIR$/out/artifacts/manualApp</output-path>
+    <root id="archive" name="manualApp.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Manual_App" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Manual_App/web/Web" />
+    </root>
+  </artifact>
+</component>
