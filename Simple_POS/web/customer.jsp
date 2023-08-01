@@ -27,4 +27,8 @@
 
     <h2><%=name%></h2> <%--// This is how we Inject Java variable value to html syntax for printing--%>
 
+    <%-- Expression --%>
+
+    <%=name%>
+
 </html>
