@@ -1,6 +1,10 @@
 
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dto.CustomerDTO" %><%--
+<%@ page import="dto.CustomerDTO" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: Diman Ranawaka
   Date: 8/1/2023
@@ -29,11 +33,37 @@
     <%
         ArrayList<CustomerDTO> allCustomer = new ArrayList<>();
 
-        allCustomer.add(new CustomerDTO("C001","Dasun","Galle",10000));
-        allCustomer.add(new CustomerDTO("C002","Hanaska","Haraduwa",20000));
-        allCustomer.add(new CustomerDTO("C003","Ravindu","Wanduramba",30000));
-        allCustomer.add(new CustomerDTO("C004","Sanchana","Karandeniya",40000));
-        allCustomer.add(new CustomerDTO("C005","Diman","Matara",50000));
+//        allCustomer.add(new CustomerDTO("C001","Dasun","Galle",10000));
+//        allCustomer.add(new CustomerDTO("C002","Hanaska","Haraduwa",20000));
+//        allCustomer.add(new CustomerDTO("C003","Ravindu","Wanduramba",30000));
+//        allCustomer.add(new CustomerDTO("C004","Sanchana","Karandeniya",40000));
+//        allCustomer.add(new CustomerDTO("C005","Diman","Matara",50000));
+
+        // Initialize database connection
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        // Taking connection from DriverManager
+
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos", "root", "1234");
+
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from customer");
+
+        ResultSet rst = preparedStatement.executeQuery(); //executeQuery used for get result set from customer table
+
+       while (rst.next()){
+
+           String id = rst.getString(1);
+
+           String name = rst.getString(2);
+
+           String address = rst.getString(3);
+
+           double salary = rst.getDouble(4);
+
+           allCustomer.add(new CustomerDTO(id,name,address,salary));
+       }
+
 
     %>
 
