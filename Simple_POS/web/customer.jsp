@@ -21,14 +21,15 @@
 //    System.out.println("Hello!");
 
 %>
+<h1>Hello, there !</h1>
+
+<h2><%=name%></h2> <%--// This is how we Inject Java variable value to html syntax for printing--%>
+
+<%-- Expression --%>
+
+<%=name%>
+
 </body>
 
-    <h1>Hello, there !</h1>
-
-    <h2><%=name%></h2> <%--// This is how we Inject Java variable value to html syntax for printing--%>
-
-    <%-- Expression --%>
-
-    <%=name%>
 
 </html>
