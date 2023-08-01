@@ -29,6 +29,10 @@
 
 <%=name%>
 
+<%--Declaration--%>
+
+<%!String address ="Matara";%>
+
 </body>
 
 
