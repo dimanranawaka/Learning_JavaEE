@@ -101,6 +101,18 @@
 
         httpRequest.send();
 
+        /**
+
+         The reason we can't see the response is that JavaScript is an asynchronous language.
+         This means that JS executes code lines in a specific order.
+         As a result, when we attempt to print the response, it might not have been received yet.
+
+         * */
+
+        httpRequest.responseText;
+        console.log("Response ",httpRequest.responseText);
+
+
     })
 
 
