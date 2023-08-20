@@ -6,7 +6,7 @@
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
-  User: Diman Ranawaka
+  User: MALIDHUWA KV
   Date: 8/1/2023
   Time: 1:25 PM
   To change this template use File | Settings | File Templates.
@@ -112,7 +112,7 @@
                 <button class="btn btn-primary" id="btnCustomer" form="customerForm" formaction="customer" formmethod="post">Save Customer</button>
                 <button class="btn btn-danger" id="btnCusDelete">Remove</button>
                 <button class="btn btn-warning" id="btnUpdate">Update</button>
-                <button class="btn btn-success" id="btnGetAll">Get All</button>
+                <button class="btn btn-success" id="btnGetAll" form="customerForm" formaction="customer.jsp">Get All</button>
                 <button class="btn btn-danger" id="btn-clear1">Clear All</button>
             </div>
 
