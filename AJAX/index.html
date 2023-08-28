@@ -57,7 +57,7 @@
                 <button type="button" class="btn btn-primary" id="btnItem" form="itemForm" formaction="db/db.txt">Add Item</button>
                 <button class="btn btn-danger" id="btnItemDelete">Remove</button>
                 <button class="btn btn-warning" id="btnItemUpdate">Update</button>
-                <button class="btn btn-success">Get All</button>
+                <button class="btn btn-success" id="btnGetAll">Get All</button>
                 <button class="btn btn-danger" id="btn-clear">Clear All</button>
             </div>
 
@@ -83,102 +83,120 @@
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <script>
 
-    $("#btnItem").click(function () {
+    // $("#btnItem").click(function () {
+    //
+    //     // // Initializing XMLHttpRequest Object
+    //     //
+    //     // var httpRequest = new XMLHttpRequest();
+    //     //
+    //     // console.log("First :", httpRequest.readyState); // 0 : uninitialized
+    //     //
+    //     // /**
+    //     //     There are 2 arguments that can passed to created XMLHttpRequest
+    //     //         1. method that carry the request
+    //     //         2. destination(location/path) that the request should carry
+    //     //         3. true or false
+    //     //   */
+    //     //
+    //     // // Open the request
+    //     // // Synchronous = Blocking (Normal Behaviour)
+    //     // // Asynchronous = Non-Blocking (Event Loop)
+    //     //
+    //     // // httpRequest.open("get",'db/db.txt',false);
+    //     // httpRequest.open("get",'db/db.txt',true);
+    //     //
+    //     // // false - Synchronous
+    //     // // true - Asynchronous
+    //     //
+    //     // console.log("Second :",httpRequest.readyState); // 1 : loading // 0
+    //     //
+    //     // /** Sending the configured request */
+    //     //
+    //     // httpRequest.send();
+    //     //
+    //     // console.log("Third :",httpRequest.readyState); // 1 : loading // 1
+    //     //
+    //     // /**
+    //     //
+    //     //  The reason we can't see the response is that JavaScript is an asynchronous language.
+    //     //  This means that JS executes code lines in a specific order.
+    //     //  As a result, when we attempt to print the response, it might not have been received yet.
+    //     //
+    //     //  * */
+    //     //
+    //     //
+    //     //
+    //     // console.log("Response ",httpRequest.responseText); // Response is now available
+    //     //
+    //     // console.log("Fourth :",httpRequest.readyState); // 1 : loading  // 4
+    //     //
+    //     // httpRequest.onreadystatechange = function () {
+    //     //     console.log(httpRequest.readyState); //2 //3 //4
+    //     //     console.log("On ready state change Event Invoked");
+    //     //
+    //     //     if (httpRequest.readyState ===4){
+    //     //         console.log("Response ",httpRequest.responseText);
+    //     //     }
+    //     // }
+    //
+    //     /*var httpRequest = new XMLHttpRequest();
+    //
+    //     httpRequest.open("get",'db/db.txt',true);
+    //
+    //     httpRequest.send();
+    //
+    //     httpRequest.onreadystatechange = function () {
+    //
+    //         if (httpRequest.readyState===4 && httpRequest.status===200){ // if the request completed
+    //             console.log("Response ",httpRequest.responseText);
+    //             $("#Display").text(httpRequest.responseText);
+    //         }
+    //
+    //     }*/
+    //
+    //     // /** How to send ajax request using jQuery */
+    //     //
+    //     // console.log("Request Started");
+    //     //
+    //     // $.ajax({
+    //     //
+    //     //     // url - where the request should go / destination
+    //     //
+    //     //     url : "db/db.txt",
+    //     //
+    //     //     //  success - what should do after receiving the request
+    //     //
+    //     //     async:false,
+    //     //
+    //     //     success:function (res){
+    //     //         console.log(res);
+    //     //     }
+    //     //
+    //     // });
+    //     //
+    //     // console.log("Request Ended");
+    //     //
+    //     // /** This is Synchronous  */
+    //
+    // })
 
-        // // Initializing XMLHttpRequest Object
-        //
-        // var httpRequest = new XMLHttpRequest();
-        //
-        // console.log("First :", httpRequest.readyState); // 0 : uninitialized
-        //
-        // /**
-        //     There are 2 arguments that can passed to created XMLHttpRequest
-        //         1. method that carry the request
-        //         2. destination(location/path) that the request should carry
-        //         3. true or false
-        //   */
-        //
-        // // Open the request
-        // // Synchronous = Blocking (Normal Behaviour)
-        // // Asynchronous = Non-Blocking (Event Loop)
-        //
-        // // httpRequest.open("get",'db/db.txt',false);
-        // httpRequest.open("get",'db/db.txt',true);
-        //
-        // // false - Synchronous
-        // // true - Asynchronous
-        //
-        // console.log("Second :",httpRequest.readyState); // 1 : loading // 0
-        //
-        // /** Sending the configured request */
-        //
-        // httpRequest.send();
-        //
-        // console.log("Third :",httpRequest.readyState); // 1 : loading // 1
-        //
-        // /**
-        //
-        //  The reason we can't see the response is that JavaScript is an asynchronous language.
-        //  This means that JS executes code lines in a specific order.
-        //  As a result, when we attempt to print the response, it might not have been received yet.
-        //
-        //  * */
-        //
-        //
-        //
-        // console.log("Response ",httpRequest.responseText); // Response is now available
-        //
-        // console.log("Fourth :",httpRequest.readyState); // 1 : loading  // 4
-        //
-        // httpRequest.onreadystatechange = function () {
-        //     console.log(httpRequest.readyState); //2 //3 //4
-        //     console.log("On ready state change Event Invoked");
-        //
-        //     if (httpRequest.readyState ===4){
-        //         console.log("Response ",httpRequest.responseText);
-        //     }
-        // }
-
-        /*var httpRequest = new XMLHttpRequest();
-
-        httpRequest.open("get",'db/db.txt',true);
-
-        httpRequest.send();
-
-        httpRequest.onreadystatechange = function () {
-
-            if (httpRequest.readyState===4 && httpRequest.status===200){ // if the request completed
-                console.log("Response ",httpRequest.responseText);
-                $("#Display").text(httpRequest.responseText);
-            }
-
-        }*/
-
-        /** How to send ajax request using jQuery */
-
-        console.log("Request Started");
+    $("#btnGetAll").click(function () {
 
         $.ajax({
 
-            // url - where the request should go / destination
-
             url : "db/db.txt",
+            async: false,
+            success: function (res) {
+                var split = res.split(" ");
 
-            //  success - what should do after receiving the request
+                var row = `<tr><td>${split[0]}</td><td>${split[1]}</td><td>${split[2]}</td><td>${split[3]}</td></tr>`;
 
-            async:false,
-
-            success:function (res){
-                console.log(res);
+                $("#tblItem").append(row);
             }
 
-        });
+        })
 
-        console.log("Request Ended");
-
-        /** This is Synchronous  */
-
-    })
+    });
 
 
 
