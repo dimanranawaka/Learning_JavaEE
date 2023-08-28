@@ -139,7 +139,7 @@
         //     }
         // }
 
-        var httpRequest = new XMLHttpRequest();
+        /*var httpRequest = new XMLHttpRequest();
 
         httpRequest.open("get",'db/db.txt',true);
 
@@ -152,7 +152,29 @@
                 $("#Display").text(httpRequest.responseText);
             }
 
-        }
+        }*/
+
+        /** How to send ajax request using jQuery */
+
+        console.log("Request Started");
+
+        $.ajax({
+
+            // url - where the request should go / destination
+
+            url : "db/db.txt",
+
+            //  success - what should do after receiving the request
+
+            success:function (res){
+                console.log(res);
+            }
+
+        });
+
+        console.log("Request Ended");
+
+        /** This is Asynchronous  */
 
     })
 
