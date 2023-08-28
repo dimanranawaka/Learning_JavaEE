@@ -85,54 +85,72 @@
 
     $("#btnItem").click(function () {
 
-        // Initializing XMLHttpRequest Object
+        // // Initializing XMLHttpRequest Object
+        //
+        // var httpRequest = new XMLHttpRequest();
+        //
+        // console.log("First :", httpRequest.readyState); // 0 : uninitialized
+        //
+        // /**
+        //     There are 2 arguments that can passed to created XMLHttpRequest
+        //         1. method that carry the request
+        //         2. destination(location/path) that the request should carry
+        //         3. true or false
+        //   */
+        //
+        // // Open the request
+        // // Synchronous = Blocking (Normal Behaviour)
+        // // Asynchronous = Non-Blocking (Event Loop)
+        //
+        // // httpRequest.open("get",'db/db.txt',false);
+        // httpRequest.open("get",'db/db.txt',true);
+        //
+        // // false - Synchronous
+        // // true - Asynchronous
+        //
+        // console.log("Second :",httpRequest.readyState); // 1 : loading // 0
+        //
+        // /** Sending the configured request */
+        //
+        // httpRequest.send();
+        //
+        // console.log("Third :",httpRequest.readyState); // 1 : loading // 1
+        //
+        // /**
+        //
+        //  The reason we can't see the response is that JavaScript is an asynchronous language.
+        //  This means that JS executes code lines in a specific order.
+        //  As a result, when we attempt to print the response, it might not have been received yet.
+        //
+        //  * */
+        //
+        //
+        //
+        // console.log("Response ",httpRequest.responseText); // Response is now available
+        //
+        // console.log("Fourth :",httpRequest.readyState); // 1 : loading  // 4
+        //
+        // httpRequest.onreadystatechange = function () {
+        //     console.log(httpRequest.readyState); //2 //3 //4
+        //     console.log("On ready state change Event Invoked");
+        //
+        //     if (httpRequest.readyState ===4){
+        //         console.log("Response ",httpRequest.responseText);
+        //     }
+        // }
 
         var httpRequest = new XMLHttpRequest();
 
-        console.log("First :", httpRequest.readyState); // 0 : uninitialized
-
-        /**
-            There are 2 arguments that can passed to created XMLHttpRequest
-                1. method that carry the request
-                2. destination(location/path) that the request should carry
-                3. true or false
-          */
-
-        // Open the request
-        // Synchronous = Blocking (Normal Behaviour)
-        // Asynchronous = Non-Blocking (Event Loop)
-
-        // httpRequest.open("get",'db/db.txt',false);
         httpRequest.open("get",'db/db.txt',true);
-
-        // false - Synchronous
-        // true - Asynchronous
-
-        console.log("Second :",httpRequest.readyState); // 1 : loading // 0
-
-        /** Sending the configured request */
 
         httpRequest.send();
 
-        console.log("Third :",httpRequest.readyState); // 1 : loading // 1
-
-        /**
-
-         The reason we can't see the response is that JavaScript is an asynchronous language.
-         This means that JS executes code lines in a specific order.
-         As a result, when we attempt to print the response, it might not have been received yet.
-
-         * */
-
-
-
-        console.log("Response ",httpRequest.responseText); // Response is now available
-
-        console.log("Fourth :",httpRequest.readyState); // 1 : loading  // 4
-        
         httpRequest.onreadystatechange = function () {
-            console.log(httpRequest.readyState); //2 //3 //4
-            console.log("On ready state change Event Invoked");
+
+            if (httpRequest.readyState===4){ // if the request completed
+                console.log("Response ",httpRequest.responseText);
+            }
+
         }
     })
 
