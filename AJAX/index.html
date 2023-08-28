@@ -89,6 +89,8 @@
 
         var httpRequest = new XMLHttpRequest();
 
+        console.log("First :", httpRequest.readyState); // 0 : uninitialized
+
         /**
             There are 2 arguments that can passed to created XMLHttpRequest
                 1. method that carry the request
@@ -97,9 +99,13 @@
 
         httpRequest.open("get",'db/db.txt');
 
+        console.log("Second :",httpRequest.readyState); // 1 : loading
+
         /** Sending the configured request */
 
         httpRequest.send();
+
+        console.log("Third :",httpRequest.readyState); // 1 : loading
 
         /**
 
@@ -109,9 +115,12 @@
 
          * */
 
-        httpRequest.responseText;
-        console.log("Response ",httpRequest.responseText);
 
+
+        console.log("Response ",httpRequest.responseText); // 1 : loading
+
+        console.log("Fourth :",httpRequest.readyState); // 1 : loading
+        
 
     })
 
