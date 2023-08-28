@@ -95,9 +95,17 @@
             There are 2 arguments that can passed to created XMLHttpRequest
                 1. method that carry the request
                 2. destination(location/path) that the request should carry
+                3. true or false
           */
 
+        // Open the request
+        // Synchronous = Blocking (Normal Behaviour)
+        // Asynchronous = Non-Blocking (Event Loop)
+
         httpRequest.open("get",'db/db.txt',false);
+
+        // false - Synchronous
+        // true - Asynchronous
 
         console.log("Second :",httpRequest.readyState); // 1 : loading // 0
 
