@@ -184,14 +184,14 @@
 
         $.ajax({
 
-            url : "db/db.txt",
-            async: false,
+            url : "db/db.json",
             success: function (res) {
-                var split = res.split(" ");
+               $("#tblItem").empty();
+               console.log(res);
 
-                var row = `<tr><td>${split[0]}</td><td>${split[1]}</td><td>${split[2]}</td><td>${split[3]}</td></tr>`;
+               var row =`<tr><td>${res.code}</td><td>${res.name}</td><td>${res.qty}</td><td>${res.unitPrice}</td></tr>`;
 
-                $("#tblItem").append(row);
+               $("#tblItem").append(row);
             }
 
         })
