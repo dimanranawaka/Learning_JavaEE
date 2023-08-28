@@ -30,7 +30,7 @@
 <main class="container-fluid" id="itemContent">
     <section class="row">
         <div class="col-12 col-lg-4">
-            <h1>Item Form</h1>
+            <h1 id="Display">Item Form</h1>
             <form id="itemForm">
             <div class="form-group">
                 <label for="itemCode">Item Code</label>
@@ -149,9 +149,11 @@
 
             if (httpRequest.readyState===4 && httpRequest.status===200){ // if the request completed
                 console.log("Response ",httpRequest.responseText);
+                $("#Display").text(httpRequest.responseText);
             }
 
         }
+
     })
 
 
