@@ -189,9 +189,11 @@
                $("#tblItem").empty();
                console.log(res);
 
-               var row =`<tr><td>${res.code}</td><td>${res.name}</td><td>${res.qty}</td><td>${res.unitPrice}</td></tr>`;
+               for(let c of res){
+                   var row =`<tr><td>${c.code}</td><td>${c.name}</td><td>${c.qty}</td><td>${c.unitPrice}</td></tr>`;
 
-               $("#tblItem").append(row);
+                   $("#tblItem").append(row);
+               }
             }
 
         })
