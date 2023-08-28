@@ -131,7 +131,8 @@
         console.log("Fourth :",httpRequest.readyState); // 1 : loading  // 4
         
         httpRequest.onreadystatechange = function () {
-            console.log("On ready state change Event Invoked")
+            console.log(httpRequest.readyState); //2 //3 //4
+            console.log("On ready state change Event Invoked");
         }
     })
 
