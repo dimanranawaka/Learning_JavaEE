@@ -41,28 +41,37 @@
 
         // Initialize database connection
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-        // Taking connection from DriverManager
+            // Taking connection from DriverManager
 
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos", "root", "1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/posapp", "root", "1234");
 
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from customer");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from customer");
 
-        ResultSet rst = preparedStatement.executeQuery(); //executeQuery used for get result set from customer table
+            ResultSet rst = preparedStatement.executeQuery(); //executeQuery used for get result set from customer table
 
-       while (rst.next()){
+            while (rst.next()){
 
-           String id = rst.getString(1);
+                String id = rst.getString(1);
 
-           String name = rst.getString(2);
+                String name = rst.getString(2);
 
-           String address = rst.getString(3);
+                String address = rst.getString(3);
 
-           double salary = rst.getDouble(4);
+                double salary = rst.getDouble(4);
 
-           allCustomer.add(new CustomerDTO(id,name,address,salary));
-       }
+                allCustomer.add(new CustomerDTO(id,name,address,salary));
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+
 
 
     %>
@@ -112,7 +121,7 @@
                 <button class="btn btn-primary" id="btnCustomer" form="customerForm" formaction="customer" formmethod="post">Save Customer</button>
                 <button class="btn btn-danger" id="btnCusDelete">Remove</button>
                 <button class="btn btn-warning" id="btnUpdate">Update</button>
-                <button class="btn btn-success" id="btnGetAll" form="customerForm" formaction="customer.jsp">Get All</button>
+                <button class="btn btn-success" id="btnGetAll" form="customerForm" formaction="customer">Get All</button>
                 <button class="btn btn-danger" id="btn-clear1">Clear All</button>
             </div>
 
