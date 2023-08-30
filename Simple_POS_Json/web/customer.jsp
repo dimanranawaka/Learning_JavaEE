@@ -217,14 +217,14 @@
     $("#btnCustomer").click(function () {
 
         let formData = $("#customerForm").serialize();
-
+        console.log(formData);
         $.ajax({
 
-            url:"customer", // Location of Servlet
+            url:"customer?option=add", // Location of Servlet
             method:"post", // Define method
             data:formData, // Attaching the formData to the request
             success:function (res) {
-                
+
             }
 
         })

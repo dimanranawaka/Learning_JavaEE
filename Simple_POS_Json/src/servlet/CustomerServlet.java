@@ -25,6 +25,7 @@ public class CustomerServlet extends HttpServlet {
         String name = req.getParameter("name");
         String address = req.getParameter("address");
         double salary = Double.parseDouble(req.getParameter("salary"));
+        String option = req.getParameter("option");
 
 //        System.out.println(id+" "+" "+name+" "+address+" "+salary);
 
@@ -39,23 +40,27 @@ public class CustomerServlet extends HttpServlet {
 
             // 3. Create Prepared Statement
 
-            PreparedStatement pstm = connection.prepareStatement("insert into customer values (?,?,?,?)");
+            if (option.equals("add")){
 
-            pstm.setObject(1,id);
+                PreparedStatement pstm = connection.prepareStatement("insert into customer values (?,?,?,?)");
 
-            pstm.setObject(2,name);
+                pstm.setObject(1,id);
 
-            pstm.setObject(3,address);
+                pstm.setObject(2,name);
 
-            pstm.setObject(4,salary);
+                pstm.setObject(3,address);
 
-            // 4. Execute Query / Execute Update
+                pstm.setObject(4,salary);
 
-            boolean b = pstm.executeUpdate() > 0;
+                // 4. Execute Query / Execute Update
 
-            PrintWriter writer = resp.getWriter();
+                boolean b = pstm.executeUpdate() > 0;
 
-            writer.write("<h1>Customer Added State : "+b+"</h1>");
+                PrintWriter writer = resp.getWriter();
+
+                writer.write("<h1>Customer Added State : "+b+"</h1>");
+
+            }
 
 
         } catch (ClassNotFoundException | SQLException e) {
