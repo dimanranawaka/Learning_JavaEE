@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="simplePOS_Json">
+    <output-path>$PROJECT_DIR$/out/artifacts/simplePOS_Json</output-path>
+    <root id="archive" name="simplePOS_Json.war">
+      <element id="javaee-facet-resources" facet="Simple_POS_Json/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Simple_POS_Json" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.annotation" />
+          <element id="library" level="project" name="javax.json-1.1.4" />
+          <element id="library" level="project" name="javax.transaction" />
+          <element id="library" level="project" name="javax.resource" />
+          <element id="library" level="project" name="javax.persistence" />
+          <element id="library" level="project" name="javax.ejb" />
+          <element id="library" level="project" name="javax.servlet" />
+          <element id="library" level="project" name="javax.servlet.jsp" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

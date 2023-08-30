@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/Manual_App/Manual_App.iml" filepath="$PROJECT_DIR$/Manual_App/Manual_App.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sample_App/Sample_App.iml" filepath="$PROJECT_DIR$/Sample_App/Sample_App.iml" />
       <module fileurl="file://$PROJECT_DIR$/Simple_POS/Simple_POS.iml" filepath="$PROJECT_DIR$/Simple_POS/Simple_POS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Simple_POS_Json/Simple_POS_Json.iml" filepath="$PROJECT_DIR$/Simple_POS_Json/Simple_POS_Json.iml" />
     </modules>
   </component>
 </project>
