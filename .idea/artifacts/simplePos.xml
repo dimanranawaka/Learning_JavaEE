@@ -6,9 +6,7 @@
         <element id="directory" name="classes">
           <element id="module-output" name="Simple_POS" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="mysql-connector-java-8.0.20" />
-        </element>
+        <element id="directory" name="lib" />
       </element>
       <element id="javaee-facet-resources" facet="Simple_POS/web/Web" />
     </root>

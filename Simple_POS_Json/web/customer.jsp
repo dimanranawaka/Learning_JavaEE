@@ -118,11 +118,11 @@
 
             </form>
             <div class="btn-group">
-                <button class="btn btn-primary" id="btnCustomer" form="customerForm" formaction="customer" formmethod="post">Save Customer</button>
-                <button class="btn btn-danger" id="btnCusDelete">Remove</button>
-                <button class="btn btn-warning" id="btnUpdate">Update</button>
-                <button class="btn btn-success" id="btnGetAll" form="customerForm" formaction="customer">Get All</button>
-                <button class="btn btn-danger" id="btn-clear1">Clear All</button>
+                <button class="btn btn-primary" id="btnCustomer" form="customerForm" type="button">Save Customer</button>
+                <button class="btn btn-danger" id="btnCusDelete" type="button">Remove</button>
+                <button class="btn btn-warning" id="btnUpdate" type="button">Update</button>
+                <button class="btn btn-success" id="btnGetAll" type="button">Get All</button>
+                <button class="btn btn-danger" id="btn-clear1" type="button">Clear All</button>
             </div>
 
         </div>
@@ -213,6 +213,24 @@
     //
     //     //Work done;
     // });
+
+    $("#btnCustomer").click(function () {
+
+        let formData = $("#customerForm").serialize();
+
+        $.ajax({
+
+            url:"customer", // Location of Servlet
+            method:"post", // Define method
+            data:formData, // Attaching the formData to the request
+            success:function (res) {
+                
+            }
+
+        })
+
+    })
+
 </script>
 </body>
 

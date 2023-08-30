@@ -38,5 +38,6 @@
     <orderEntry type="library" name="javax.servlet.jsp" level="project" />
     <orderEntry type="library" name="javax.transaction" level="project" />
     <orderEntry type="library" name="javax.json-1.1.4" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-8.1.0" level="project" />
   </component>
 </module>

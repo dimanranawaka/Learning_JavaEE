@@ -31,11 +31,11 @@ public class CustomerServlet extends HttpServlet {
         try {
 
             // 1. Load JDBC Driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             // 2. Create the Connection using Driver Manager
 
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos", "root", "1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/posapp", "root", "1234");
 
             // 3. Create Prepared Statement
 

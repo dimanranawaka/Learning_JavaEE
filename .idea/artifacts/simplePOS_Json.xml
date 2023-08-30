@@ -16,8 +16,10 @@
           <element id="library" level="project" name="javax.ejb" />
           <element id="library" level="project" name="javax.servlet" />
           <element id="library" level="project" name="javax.servlet.jsp" />
+          <element id="library" level="project" name="mysql-connector-j-8.1.0" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="Simple_POS_Json/web/Web2" />
     </root>
   </artifact>
 </component>

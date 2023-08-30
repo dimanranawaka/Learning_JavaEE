@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="pos@localhost" uuid="004cb41d-3602-42c4-ac43-496d52b415fb">
+    <data-source source="LOCAL" name="posapp@localhost" uuid="89ada530-51b4-4ec0-90f7-44cc7d668532">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/pos</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/posapp</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
