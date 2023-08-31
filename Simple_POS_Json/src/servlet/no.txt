@@ -1,0 +1,16 @@
+<%
+                        for (CustomerDTO customer : allCustomer) {
+                    %>
+
+                    <tr>
+                        <td><%=customer.getId()%></td>
+                        <td><%=customer.getName()%></td>
+                        <td><%=customer.getAddress()%></td>
+                        <td><%=customer.getSalary()%></td>
+
+                    </tr>
+
+                    <%
+                        }
+
+                    %>

@@ -31,45 +31,7 @@
 <body>
 
     <%
-        ArrayList<CustomerDTO> allCustomer = new ArrayList<>();
 
-//        allCustomer.add(new CustomerDTO("C001","Dasun","Galle",10000));
-//        allCustomer.add(new CustomerDTO("C002","Hanaska","Haraduwa",20000));
-//        allCustomer.add(new CustomerDTO("C003","Ravindu","Wanduramba",30000));
-//        allCustomer.add(new CustomerDTO("C004","Sanchana","Karandeniya",40000));
-//        allCustomer.add(new CustomerDTO("C005","Diman","Matara",50000));
-
-        // Initialize database connection
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Taking connection from DriverManager
-
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/posapp", "root", "1234");
-
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from customer");
-
-            ResultSet rst = preparedStatement.executeQuery(); //executeQuery used for get result set from customer table
-
-            while (rst.next()){
-
-                String id = rst.getString(1);
-
-                String name = rst.getString(2);
-
-                String address = rst.getString(3);
-
-                double salary = rst.getDouble(4);
-
-                allCustomer.add(new CustomerDTO(id,name,address,salary));
-            }
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
 
 
 
@@ -118,7 +80,7 @@
 
             </form>
             <div class="btn-group">
-                <button class="btn btn-primary" id="btnCustomer" form="customerForm" type="button">Save Customer</button>
+                <button class="btn btn-primary" id="btnCustomer"  type="button">Save Customer</button>
                 <button class="btn btn-danger" id="btnCusDelete" type="button">Remove</button>
                 <button class="btn btn-warning" id="btnUpdate" type="button">Update</button>
                 <button class="btn btn-success" id="btnGetAll" type="button">Get All</button>
@@ -137,22 +99,7 @@
                 </tr>
                 </thead>
                 <tbody id="tblCustomer">
-                    <%
-                        for (CustomerDTO customer : allCustomer) {
-                    %>
 
-                    <tr>
-                        <td><%=customer.getId()%></td>
-                        <td><%=customer.getName()%></td>
-                        <td><%=customer.getAddress()%></td>
-                        <td><%=customer.getSalary()%></td>
-
-                    </tr>
-
-                    <%
-                        }
-
-                    %>
                 </tbody>
             </table>
         </div>
@@ -227,7 +174,60 @@
 
             }
 
+        });
+
+    });
+
+    $("#btnCusDelete").click(function () {
+
+        let id = $("#customerForm").serialize();
+
+        $.ajax({
+
+            url:"customer",
+            method: "delete",
+            data:id, // Attaching the formData to the request
+            success:function (res) {
+                console.log(res);
+                $("#tblCustomer").html(res);
+            }
+
         })
+
+    });
+
+    $("#btnUpdate").click(function () {
+        let formData = $("#customerForm").serialize();
+        $.ajax({
+
+            url:"customer?option=update",
+            method: "put",
+            data:formData,
+            success:function (res) {
+                console.log(res);
+            }
+
+        })
+
+    });
+
+    $("#btnGetAll").click(function () {
+
+        let formData = $("#customerForm").serialize();
+
+        $.ajax({
+
+            url:"customer?option=getAll",
+            method: "get",
+            data:formData,
+            success:function (res) {
+                console.log(res);
+
+                $("#tblCustomer").html(res);
+
+            }
+        })
+
 
     })
 

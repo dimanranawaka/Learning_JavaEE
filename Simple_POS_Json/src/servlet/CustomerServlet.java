@@ -1,5 +1,7 @@
 package servlet;
 
+import dto.CustomerDTO;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,16 +9,68 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 @WebServlet(urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
+
+    ArrayList<CustomerDTO> allCustomer = new ArrayList<>();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String option = req.getParameter("option");
+
+
+
+
+
+        // Initialize database connection
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Taking connection from DriverManager
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/posapp", "root", "1234");
+
+
+            if (option.equals("getAll")){
+
+                PreparedStatement preparedStatement = connection.prepareStatement("select * from customer");
+
+                ResultSet rst = preparedStatement.executeQuery(); //executeQuery used for get result set from customer table
+
+                if (allCustomer.isEmpty()){
+
+                    while (rst.next()){
+
+                        String id = rst.getString(1);
+
+                        String name = rst.getString(2);
+
+                        String address = rst.getString(3);
+
+                        double salary = rst.getDouble(4);
+
+                        allCustomer.add(new CustomerDTO(id,name,address,salary));
+                    }
+                }
+
+
+                for (CustomerDTO customer : allCustomer) {
+                        resp.getWriter().println("<tr><td>"+customer.getId()+"</td><td>"+customer.getName()+"</td><td>"+customer.getAddress()+"</td><td>"+customer.getSalary()+"</td></tr>");
+                }
+
+            }
+
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
     }
 
     @Override
@@ -66,5 +120,42 @@ public class CustomerServlet extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String id = req.getParameter("id");
+
+//        String option = req.getParameter("option");
+
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/posapp", "root", "1234");
+
+
+                PreparedStatement statement = connection.prepareStatement("DELETE  FROM customer WHERE id=?");
+
+                statement.setObject(1, id);
+
+                boolean b = statement.executeUpdate()>0;
+
+
+
+
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String id = req.getParameter("id");
+
+
     }
 }
